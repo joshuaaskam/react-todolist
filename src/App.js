@@ -49,11 +49,14 @@ function App() {
 
   return (
     <>
-      <TodoList todos={todos} toggleTodo={toggleTodo} />
-      <input type="text" onKeyUp={handleKeyUp} ref={todoNameRef} />
-      <button onClick={handleAddTodo}>Add Todo</button>
-      <button onClick={handleClearTodos}>Clear Complete</button>
-      <div>{todos.filter(todo => !todo.complete).length} left to do</div>
+      <h1 class='title'>To Do List</h1>
+      <div class='content'>
+        <TodoList todos={todos} toggleTodo={toggleTodo} />
+        <input type="text" onKeyUp={handleKeyUp} ref={todoNameRef} />
+        <button onClick={handleAddTodo}>Add Todo</button>
+        <button onClick={handleClearTodos}>Clear Complete</button>
+        <div>{todos.filter(todo => !todo.complete).length} left to do</div>
+      </div>
     </>
   );
 }

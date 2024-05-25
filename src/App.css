@@ -7,12 +7,21 @@ button {
     background-color: #00b7ff;
 }
 
+.title {
+    text-align: center;
+}
+
+.content {
+    text-align: center;
+}
+
 .Todo { 
     border-radius: 5px;
     background-color: #00b7ff;
     padding: 2px;
     padding-right: 5px;
     padding-left: 1px;
+    width: 1000px;
 }
 
 .TodoList {
