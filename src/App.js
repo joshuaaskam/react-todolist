@@ -36,6 +36,12 @@ function App() {
      todoNameRef.current.value = null
   }
 
+  function handleKeyUp(e) {
+    if(e.key === 'Enter'){
+      handleAddTodo()
+    }
+  }
+
   function handleClearTodos() {
     const newTodos = todos.filter(todo => !todo.complete)
     setTodos(newTodos)
@@ -43,8 +49,8 @@ function App() {
 
   return (
     <>
-      <TodoList todos={todos} toggleTodo={toggleTodo}/>
-      <input type="text" ref={todoNameRef} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} />
+      <input type="text" onKeyUp={handleKeyUp} ref={todoNameRef} />
       <button onClick={handleAddTodo}>Add Todo</button>
       <button onClick={handleClearTodos}>Clear Complete</button>
       <div>{todos.filter(todo => !todo.complete).length} left to do</div>
