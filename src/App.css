@@ -1,7 +1,18 @@
-.Todo { 
-    border-radius: 25px;
+input {
+    border-radius: 5px;
+}
+
+button {
+    border-radius: 5px;
     background-color: #00b7ff;
-    width: 10px;
+}
+
+.Todo { 
+    border-radius: 5px;
+    background-color: #00b7ff;
+    padding: 2px;
+    padding-right: 5px;
+    padding-left: 1px;
 }
 
 .TodoList {
