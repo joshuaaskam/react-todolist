@@ -12,7 +12,7 @@ button {
 }
 
 .content {
-    text-align: center;
+    margin-left: 40%;
 }
 
 .Todo { 
@@ -21,7 +21,6 @@ button {
     padding: 2px;
     padding-right: 5px;
     padding-left: 1px;
-    width: 1000px;
 }
 
 .TodoList {
