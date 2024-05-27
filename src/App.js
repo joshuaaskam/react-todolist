@@ -60,10 +60,10 @@ function App() {
       <div className='content'>
         <TodoList todos={todos} toggleTodo={toggleTodo} handleEditTodo={handleEditTodo} />
         <input type="text" onKeyUp={handleKeyUp} ref={todoNameRef} />
-        <button onClick={handleAddTodo}>Add Todo</button>
+        <button onClick={handleAddTodo}>Add Item</button>
         <button onClick={handleClearTodos}>Clear Complete</button>
-        <div>{todos.filter(todo => !todo.complete).length} left to do</div>
       </div>
+      <div className="left-to-do">{todos.filter(todo => !todo.complete).length} left to do</div>
     </>
   );
 }

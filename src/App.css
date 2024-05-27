@@ -31,3 +31,9 @@ button:hover {
     margin-bottom: 4px;
     padding: 1px;
 }
+
+.left-to-do {
+    text-align: center;
+    margin-left: 0px;
+    margin-top: 10px;
+}
