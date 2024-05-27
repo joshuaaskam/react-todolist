@@ -56,7 +56,7 @@ function App() {
 
   return (
     <>
-      <h1 className='title'>To Do List</h1>
+      <h1 className='title'>To-Do List</h1>
       <div className='content'>
         <TodoList todos={todos} toggleTodo={toggleTodo} handleEditTodo={handleEditTodo} />
         <input type="text" onKeyUp={handleKeyUp} ref={todoNameRef} />
