@@ -27,6 +27,13 @@ function App() {
     setTodos(newTodos)
   }
 
+  function handleEditTodo(id, name) {
+    const newTodos = [...todos]
+    const todo = newTodos.find(todo => todo.id === id)
+    todo.name = name
+    setTodos(newTodos)
+  }
+
   function handleAddTodo() { 
      const name = todoNameRef.current.value
      if (name === '') return
@@ -49,9 +56,9 @@ function App() {
 
   return (
     <>
-      <h1 class='title'>To Do List</h1>
-      <div class='content'>
-        <TodoList todos={todos} toggleTodo={toggleTodo} />
+      <h1 className='title'>To Do List</h1>
+      <div className='content'>
+        <TodoList todos={todos} toggleTodo={toggleTodo} handleEditTodo={handleEditTodo} />
         <input type="text" onKeyUp={handleKeyUp} ref={todoNameRef} />
         <button onClick={handleAddTodo}>Add Todo</button>
         <button onClick={handleClearTodos}>Clear Complete</button>
