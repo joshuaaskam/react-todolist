@@ -8,8 +8,9 @@ export default function Todo({todo, toggleTodo}) {
         <div class='TodoList'>
             <label class="Todo">
                 <input type="checkbox" checked={todo.complete} onChange={handleTodoClick} />
-                {todo.name}
+                <span contenteditable="true">{todo.name}</span>
             </label>
+            <button>Edit</button>
         </div>
     )
 }
