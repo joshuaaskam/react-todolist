@@ -2,12 +2,16 @@ import React, { useState, useRef, useEffect } from "react";
 import TodoList from "./TodoList";
 import { v4 as uuidv4 } from 'uuid';
 
-const  LOCAL_STORAGE_KEY = 'todoApp.todos'
+const LOCAL_STORAGE_KEY = 'todoApp.todos'
+const MODE_PREFERENCE_KEY = 'todoApp.mode'
 
 function App() {
   // Create state variables todos to store all todo items
   const [todos, setTodos] = useState([])
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState(() =>  {
+    const storedTheme = localStorage.getItem(MODE_PREFERENCE_KEY);
+    return storedTheme || 'light';
+  })
 
   const todoNameRef = useRef()
 
@@ -22,6 +26,10 @@ function App() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos)) // Must be stringified to be stored in local storage
   },[todos]) // Anytime something in todos changes, use this effect.
 
+  useEffect(() => {
+    localStorage.setItem(MODE_PREFERENCE_KEY, theme)
+  }, [theme])
+
   function toggleTodo(id) {
     const newTodos = [...todos]
     const todo = newTodos.find(todo => todo.id === id)
@@ -30,7 +38,7 @@ function App() {
   }
 
   function toggleTheme() {
-    setTheme(theme === 'light' ? 'dark' : 'light')
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
   }
 
   function handleEditTodo(id, name) {
