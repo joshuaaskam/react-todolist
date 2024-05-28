@@ -23,13 +23,15 @@ export default function Todo({todo, toggleTodo, handleEditTodo}) {
                 <input type="checkbox" checked={todo.complete} onChange={handleTodoClick} />
                 <span>{todo.name}</span>
             </label>
-            <button onClick={() => toggleShow(!show)}>Edit</button>
-            {show && 
+            {show ? (
                 <>
                     <input type="text" ref={newTodoRef}/>
                     <button onClick={handleSave}>Save</button>
+                    <button onClick={() => toggleShow(!show)}>Cancel</button>
                 </>
-            }
+            ) : (
+                <button onClick={() => toggleShow(!show)}>Edit</button>
+            )}
         </div>
     )
 }
