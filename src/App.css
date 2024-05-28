@@ -7,12 +7,32 @@ button {
     background-color: #00b7ff;
 }
 
+.dark button {
+    color: white;
+    background-color: #00587b;
+}
+
 button:hover {
     background-color: #8ddfff;
 }
 
+.dark button:hover {
+    background-color: #639eb6;
+}
+
+.dark {
+    background-color: dimgray;
+    color: white;
+}
+
 .title {
     text-align: center;
+    margin-left: 45%;
+    display: inline-block;
+}
+
+.modeSwitch {
+    float: right;
 }
 
 .content {
@@ -25,6 +45,10 @@ button:hover {
     padding: 2px;
     padding-right: 5px;
     padding-left: 1px;
+}
+
+.dark .Todo {
+    background-color: #00587b;
 }
 
 .TodoList {

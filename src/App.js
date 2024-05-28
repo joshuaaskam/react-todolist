@@ -7,6 +7,8 @@ const  LOCAL_STORAGE_KEY = 'todoApp.todos'
 function App() {
   // Create state variables todos to store all todo items
   const [todos, setTodos] = useState([])
+  const [theme, setTheme] = useState('dark')
+
   const todoNameRef = useRef()
 
   // Retrieve todos from local storage on the launch of the app.
@@ -25,6 +27,10 @@ function App() {
     const todo = newTodos.find(todo => todo.id === id)
     todo.complete = !todo.complete
     setTodos(newTodos)
+  }
+
+  function toggleTheme() {
+    setTheme(theme === 'light' ? 'dark' : 'light')
   }
 
   function handleEditTodo(id, name) {
@@ -56,14 +62,19 @@ function App() {
 
   return (
     <>
-      <h1 className='title'>To-Do List</h1>
-      <div className='content'>
-        <TodoList todos={todos} toggleTodo={toggleTodo} handleEditTodo={handleEditTodo} />
-        <input type="text" onKeyUp={handleKeyUp} ref={todoNameRef} />
-        <button onClick={handleAddTodo}>Add Item</button>
-        <button onClick={handleClearTodos}>Clear Complete</button>
+      <div className={theme}>
+        <div>
+          <h1 className='title'>To-Do List</h1>
+          <button className='modeSwitch' onClick={toggleTheme}>Mode</button>
+        </div>
+        <div className='content'>
+          <TodoList todos={todos} toggleTodo={toggleTodo} handleEditTodo={handleEditTodo} />
+          <input type="text" onKeyUp={handleKeyUp} ref={todoNameRef} />
+          <button onClick={handleAddTodo}>Add Item</button>
+          <button onClick={handleClearTodos}>Clear Complete</button>
+        </div>
+        <div className="left-to-do">{todos.filter(todo => !todo.complete).length} left to do</div>
       </div>
-      <div className="left-to-do">{todos.filter(todo => !todo.complete).length} left to do</div>
     </>
   );
 }
